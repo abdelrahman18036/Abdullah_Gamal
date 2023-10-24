@@ -1,0 +1,30 @@
+.services{
+  background-image: var(--second-gradient);
+}
+
+.services_item{
+  margin-bottom: 52px;
+}
+
+.services_subtitle{
+  color: var(--text-color);
+  font-size: var(--normal-font-size);
+  font-weight: 700;
+  margin-bottom: 50px;
+  display: block;
+}
+
+.services_title{
+  font-size: var(--h4-font-size);
+  margin-bottom: 15px;
+  color: var(--primary-color);
+
+}
+
+.services_description{
+  min-height: 175px;
+}
+
+.swiper-pagination-bullet{
+  background-color: var(--primary-color);
+}
