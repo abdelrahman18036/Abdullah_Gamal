@@ -25,10 +25,12 @@ function Home() {
           </p>
 
           <div className="home_img-wrapper">
-            <div className="home_banner">
+            {/* <div className="home_banner">
               <img src={profileImg} alt="Image" className="home_profile" />
+            </div> */}
+            <div className="image_box">
+              {/* <img src={profileImg} alt="" /> */}
             </div>
-
             <p className="home_data home_data_one">
               <span className="text-lg">
                 1<b className="plus">+ </b>
@@ -38,7 +40,6 @@ function Home() {
                 Years of <span>Experience</span>
               </span>
             </p>
-
             <p className="home_data home_data_two">
               <span className="text-lg">30</span>
 
@@ -46,10 +47,9 @@ function Home() {
                 Completed <span>Projects</span>
               </span>
             </p>
-
             <img src={shapeOne} alt="Image" className="shape shape_1" />
-            <img src={shapeTwo} alt="Image" className="shape shape_2" />
-            <img src={shapeTwo} alt="Image" className="shape shape_3" />
+            {/* <img src={shapeTwo} alt="Image" className="shape shape_2" />
+            <img src={shapeTwo} alt="Image" className="shape shape_3" /> */}
           </div>
 
           <p className="home_text">
