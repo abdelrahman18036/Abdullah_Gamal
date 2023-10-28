@@ -9,7 +9,7 @@ import "./home.css";
 
 function Home() {
   return (
-    <section className="home" id="home">
+    <section className="home fade-up" id="home ">
       <div className="home_wrapper">
         <div className="home_container container">
           <p className="home_subtitle">

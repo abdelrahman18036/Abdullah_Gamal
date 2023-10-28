@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { testimonials } from "../../Data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -11,8 +11,34 @@ import testimonialIcon from "../../assets/testimonials-icon.svg";
 import "./testimonials.css";
 
 function Testimonials() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const handleScroll = () => {
+      const top = section.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (top < windowHeight * 0.75) {
+        setIsVisible(true);
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <section className="testimonials section" id="testimonials">
+    <section
+      ref={sectionRef}
+      className={`testimonials section ${isVisible ? "fade-in" : ""}`}
+      id="testimonials"
+    >
       <h2 className="section_title text-cs">Testimonials</h2>
       <p className="section_subtitle">
         My <span>Clients Say</span>

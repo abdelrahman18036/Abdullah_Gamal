@@ -1,5 +1,6 @@
 .pricing{
-  background-image: var(--third-gradient);
+   /* background-image: var(--third-gradient); */
+ 
 }
 .pricing_container{
   grid-template-columns: repeat(3 , 1fr);

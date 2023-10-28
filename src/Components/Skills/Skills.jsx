@@ -1,11 +1,37 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import shapeOne from "../../assets/shape-1.png";
 import { skills } from "../../Data";
 import "./skills.css";
 
 function Skills() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const handleScroll = () => {
+      const top = section.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (top < windowHeight * 0.75) {
+        setIsVisible(true);
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <section className="skills section " id="skills">
+    <section
+      ref={sectionRef}
+      className={`skills section ${isVisible ? "fade-in" : ""}`}
+      id="skills"
+    >
       <h2 className="section_title text-cs">Professional Skills </h2>
       <p className="section_subtitle">
         My <span>Talent</span>

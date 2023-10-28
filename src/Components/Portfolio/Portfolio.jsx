@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import List from "./List";
 import Items from "./Items";
 import { projects } from "../../Data";
@@ -12,9 +12,10 @@ const allNavList = [
 ];
 
 function Portfolio() {
+  const [isVisible, setIsVisible] = useState(false);
   const [projectItems, setProjectItems] = useState(projects);
   const [categoryList, setCategoryList] = useState(allNavList);
-
+  const sectionRef = useRef(null);
   const filterItems = (category) => {
     if (category === "all") {
       setProjectItems(projects);
@@ -26,9 +27,30 @@ function Portfolio() {
 
     setProjectItems(newProjectItems);
   };
+  useEffect(() => {
+    const section = sectionRef.current;
+    const handleScroll = () => {
+      const top = section.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (top < windowHeight * 0.75) {
+        setIsVisible(true);
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <section className="portfolio section">
+    <section
+      ref={sectionRef}
+      className={`portfolio section ${isVisible ? "fade-in" : ""}`}
+    >
       <h2 className="section_title text-cs">Portfolio</h2>
       <p className="section_subtitle">
         My <span>Cases</span>

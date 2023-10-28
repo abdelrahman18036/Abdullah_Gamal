@@ -111,9 +111,8 @@ function Header() {
             {theme === "light-theme" ? <BsMoonStarsFill /> : <BsSunFill />}
           </div>
           <div
-            className={`${
-              showMenu ? "nav_toggle animate-toggle" : "nav_toggle"
-            }`}
+            className={`${showMenu ? "nav_toggle animate-toggle" : "nav_toggle"
+              }`}
             onClick={() => setShowMenu(!showMenu)}
           >
             <span></span>

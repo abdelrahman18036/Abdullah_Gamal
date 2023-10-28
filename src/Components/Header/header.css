@@ -5,6 +5,12 @@
   padding: 20px;
   z-index: 100;
 }
+/* Example CSS for smooth theme transition */
+body.light-theme, body.dark-theme {
+  transition: background-color 0.5s, color 0.5s; /* Add other properties you need to transition */
+}
+
+/* Add more styles as needed */
 
 .scroll-header{
   position: fixed;
@@ -34,8 +40,6 @@
   font-size: var(--h2-font-size);
   font-weight: 700;
   letter-spacing: 2px;
-  border: 1px solid var(--primary-color);
-  box-shadow: var(--shadow);
   border-radius: 50%;
   padding: 12px;
   transition: all 0.3s var(--transition);
@@ -44,7 +48,6 @@
 
 .nav_logo:hover{
   color: var(--title-color);
-  background-color: var(--primary-color);
 }
 
 .nav_menu{

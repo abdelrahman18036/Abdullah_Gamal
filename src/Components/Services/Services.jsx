@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { services } from "../../Data";
 import { FaArrowRight } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,8 +10,34 @@ import shapeOne from "../../assets/shape-1.png";
 import "./services.css";
 
 function Services() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const handleScroll = () => {
+      const top = section.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (top < windowHeight * 0.75) {
+        setIsVisible(true);
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <section className="services section" id="services">
+    <section
+      ref={sectionRef}
+      className={`services section ${isVisible ? "fade-in" : ""}`}
+      id="services"
+    >
       <h2 className="section_title text-cs">What I Do</h2>
       <p className="section_subtitle">
         My <span>Services</span>

@@ -1,0 +1,189 @@
+.lines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    font-size: 0;
+    pointer-events: none;
+    z-index: 1111
+}
+/* lines.css */
+
+/* ... (previous styles) */
+
+/* New styles for the light */
+.light {
+    position: absolute;
+    width: 4px; /* Set the width of the light */
+    height: 4px; /* Set the height of the light */
+    background-color: yellow; /* Color of the light */
+    animation: moveLight 5s linear infinite; /* Adjust the animation duration */
+  }
+  
+  /* Position the light within each line-col */
+  .line-col {
+    position: relative;
+  }
+  
+  /* Adjust the position of the light within each line-col */
+  .line-col .light {
+    top: 0; /* Adjust the top position as needed */
+    left: 50%; /* Center the light horizontally */
+    transform: translateX(-50%); /* Center the light horizontally */
+  }
+  
+  @keyframes moveLight {
+    0% {
+      height: 4px; /* Start with a small height */
+    }
+    50% {
+      height: 100%; /* Increase the height to the desired size */
+    }
+    100% {
+      height: 4px; /* End with a small height */
+    }
+  }
+  
+.lines.no-lines .line-col:before {
+    opacity: 0
+}
+
+.lines .line-col {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 20%;
+    height: 100vh
+}
+
+.lines .line-col:first-child:before {
+    background: 0 0
+}
+
+.lines .line-col:first-child:after {
+    left: auto;
+    right: 0;
+    width: 1000%
+}
+
+.lines .line-col:first-child .line {
+    display: none
+}
+
+.lines .line-col:last-child:after {
+    left: 0;
+    right: auto;
+    width: 1000%
+}
+
+.lines .line-col:nth-child(1):before {
+    -o-transition-delay: 2.9s;
+    -webkit-transition-delay: 2.9s;
+    transition-delay: 2.9s
+}
+
+.lines .line-col:nth-child(1):after {
+    top: 0;
+    bottom: auto;
+    -webkit-transition-delay: .9s;
+    -o-transition-delay: .9s;
+    transition-delay: .9s
+}
+
+.lines .line-col:nth-child(2):before {
+    -o-transition-delay: 2.7s;
+    -webkit-transition-delay: 2.7s;
+    transition-delay: 2.7s
+}
+
+.lines .line-col:nth-child(2):after {
+    top: auto;
+    bottom: 0;
+    -webkit-transition-delay: .7s;
+    -o-transition-delay: .7s;
+    transition-delay: .7s
+}
+
+.lines .line-col:nth-child(3):before {
+    -o-transition-delay: 2.2s;
+    -webkit-transition-delay: 2.2s;
+    transition-delay: 2.2s
+}
+
+.lines .line-col:nth-child(3):after {
+    top: 0;
+    bottom: auto;
+    -webkit-transition-delay: .2s;
+    -o-transition-delay: .2s;
+    transition-delay: .2s
+}
+
+.lines .line-col:nth-child(4):before {
+    -o-transition-delay: 2.5s;
+    -webkit-transition-delay: 2.5s;
+    transition-delay: 2.5s
+}
+
+.lines .line-col:nth-child(4):after {
+    top: auto;
+    bottom: 0;
+    -webkit-transition-delay: .5s;
+    -o-transition-delay: .5s;
+    transition-delay: .5s
+}
+
+.lines .line-col:nth-child(5):before {
+    -o-transition-delay: 3s;
+    -webkit-transition-delay: 3s;
+    transition-delay: 3s
+}
+
+.lines .line-col:nth-child(5):after {
+    top: 0;
+    bottom: auto;
+    -webkit-transition-delay: 1s;
+    -o-transition-delay: 1s;
+    transition-delay: 1s
+}
+
+.lines .line-col:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 0%;
+    background: rgba(255, 255, 255, .07);
+    transition: height 1s cubic-bezier(.165, .85, .45, 1) 0s;
+    -moz-transition: height 1s cubic-bezier(.165, .85, .45, 1) 0s;
+    -webkit-transition: height 1s cubic-bezier(.165, .85, .45, 1) 0s;
+    -o-transition: height 1s cubic-bezier(.165, .85, .45, 1) 0s
+}
+
+.lines .line-col:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #1e1e1e;
+    z-index: 12;
+    transition: height 1s cubic-bezier(.165, .85, .45, 1) 0s;
+    -moz-transition: height 1s cubic-bezier(.165, .85, .45, 1) 0s;
+    -webkit-transition: height 1s cubic-bezier(.165, .85, .45, 1) 0s;
+    -o-transition: height 1s cubic-bezier(.165, .85, .45, 1) 0s
+}
+
+.lines.finish .line-col:before {
+    height: 100%
+}
+
+.lines.finish .line-col:after {
+    height: 0%
+}
+
+.lines.ready {
+    z-index: 11
+}

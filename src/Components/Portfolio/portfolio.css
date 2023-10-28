@@ -1,5 +1,16 @@
 .portfolio{
-  background-image: var(--first-gradient);
+   /* background-image: var(--first-gradient); */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+/* Initial hidden state */
+
+
+/* Fade-up animation */
+.portfolio.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .portfolio_list{

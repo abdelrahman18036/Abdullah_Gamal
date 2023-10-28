@@ -1,5 +1,10 @@
+body{
+  overflow-x: hidden;
+   /* background-image: var(--first-gradient); */
+}
+
 .home {
-  background-image: var(--first-gradient);
+   /* background-image: var(--first-gradient); */
   padding-bottom: 180px;
 }
 
@@ -46,8 +51,6 @@
 .home_title {
   color: #fff;
   font-size: var(--biggest-font-size);
-  text-shadow: 2px 2px hsl(0, 0%, 0%), -2px 2px hsl(0, 0%, 0%),
-    2px -2px hsl(0, 0%, 0%), -2px -2px hsl(0, 0%, 0%), 5px 5px rgb(0 0 0 /20%);
   line-height: 1.2;
   margin-top: 15px;
 }
@@ -98,34 +101,38 @@
   width: 100%;
   max-width: 620px;
 }
+section {
+  z-index: 2!important;
+  background-color: transparent;
+}
 
-.image_box{
+.image_box {
   position: relative;
   z-index: 1;
   background-image: url('../../assets/me1.jpg');
   background-repeat: no-repeat;
-  /* background-position:calc(55% + 60px); */
   background-position: center;
   background-size: cover;
-  box-shadow: inset 0 0 0 8px var(--primary-color);
+  box-shadow: inset 0 0 0 4px var(--primary-color);
   order: 1;
   width: 500px;
   height: 500px;
-  animation: profile_animate 8s ease-in-out infinite 1s ;
+  animation: profile_animate 8s ease-in-out infinite 1s;
   margin: 0 auto;
+  border-radius: 50%; /* Make the initial border-radius a circle */
 }
 
-@keyframes profile_animate{
-  0%{
-    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+@keyframes profile_animate {
+  0% {
+    border-radius: 50%; /* Initial circle shape */
   }
 
-  50%{
-    border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+  50% {
+    border-radius: 25% 75% 75% 25% / 25% 45% 55% 75%; /* Create a dynamic shape */
   }
 
-  100%{
-    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  100% {
+    border-radius: 50%; /* Return to a circle shape */
   }
 }
 

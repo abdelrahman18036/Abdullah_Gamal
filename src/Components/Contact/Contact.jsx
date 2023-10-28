@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   FaRegAddressBook,
   FaRegEnvelope,
@@ -17,6 +17,28 @@ function Contact() {
     subject: "",
     message: "",
   });
+
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const handleScroll = () => {
+      const top = section.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (top < windowHeight * 0.75) {
+        setIsVisible(true);
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -39,7 +61,11 @@ function Contact() {
   };
 
   return (
-    <section className="contact section" id="contact">
+    <section
+      ref={sectionRef}
+      className={`contact section ${isVisible ? "fade-in" : ""}`}
+      id="contact"
+    >
       <h2 className="section_title text-cs">Contact Me</h2>
       <p className="section_subtitle">
         Let's <span>Talk About Ideas </span>

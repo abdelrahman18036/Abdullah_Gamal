@@ -1,6 +1,4 @@
-.contact{
-  background-image: var(--second-gradient);
-}
+
 
 .contact_container{
   grid-template-columns: 5fr 7fr;
@@ -13,6 +11,20 @@
   margin-bottom: 40px;
   position: relative;
 }
+
+/* Initial hidden state */
+.contact {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Fade-up animation */
+.contact.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 .contact_card_icon , 
 .contact_form_input{

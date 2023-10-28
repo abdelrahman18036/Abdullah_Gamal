@@ -27,30 +27,16 @@ export const links = [
     name: "Services",
     path: "services",
   },
+
   {
-    name: "Skills",
-    path: "skills",
-  },
-  {
-    name: "Works",
+    name: "portfolio",
     path: "portfolio",
   },
   {
     name: "Resume",
     path: "resume",
   },
-  {
-    name: "Testimonials",
-    path: "testimonials",
-  },
-  {
-    name: "Pricing",
-    path: "pricing",
-  },
-  {
-    name: "Blog",
-    path: "blog",
-  },
+
   {
     name: "Contact",
     path: "contact",

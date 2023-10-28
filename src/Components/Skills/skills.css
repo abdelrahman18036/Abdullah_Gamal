@@ -1,10 +1,21 @@
 .skills{
-  background-image: var(--third-gradient);
+    /* background-image: var(--third-gradient); */
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .skills_container{
   grid-template-columns: repeat(3 , 1fr);
   row-gap: 70px;
+}
+
+
+/* Fade-up animation */
+.skills.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .skills_titles , 
